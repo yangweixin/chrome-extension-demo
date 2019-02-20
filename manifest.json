@@ -30,5 +30,6 @@
     {
         "newtab": "newtab.html"
     },
-    "omnibox": { "keyword" : "go" }
+    "omnibox": { "keyword" : "go" },
+    "devtools_page": "devtools.html"
 }

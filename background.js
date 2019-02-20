@@ -22,10 +22,24 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 chrome.contextMenus.create({
-  id: "234234",
-  title: "young"
+  id: "1",
+  title: "young",
+  documentUrlPatterns: ["https://*.baidu.com/**"]
 })
 
-chrome.contextMenus.onClicked.addListener(function() {
-  alert("young extension.")
+chrome.contextMenus.create({
+  id: "2",
+  title: '使用度娘搜索：%s', // %s表示选中的文字
+  contexts: ['selection'] // 只有当选中文字时才会出现此右键菜单
+});
+
+chrome.contextMenus.onClicked.addListener(function( info, tab) {
+  switch (info.menuItemId) {
+    case "1": alert("young extension.");break;
+    case "2": {
+      chrome.tabs.create({url: 'https://www.baidu.com/s?ie=utf-8&wd=' + encodeURI(info.selectionText)});
+      break;
+    }
+    
+  } 
 })
