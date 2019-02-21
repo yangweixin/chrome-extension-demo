@@ -3,7 +3,7 @@
     "version": "1.0",
     "description": "Build an Extension!",
     "manifest_version": 2,
-    "permissions": ["storage", "declarativeContent", "activeTab", "contextMenus", "tabs"],
+    "permissions": ["storage", "declarativeContent", "activeTab", "contextMenus", "tabs", "notifications"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
@@ -25,6 +25,10 @@
         "128": "images/get_started128.png"
     },
     "options_page": "options.html",
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
     "homepage_url": "https://www.baidu.com",
     "chrome_url_overrides":
     {
